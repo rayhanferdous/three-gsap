@@ -1,5 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import ThreeJsBox from "./components/ThreeJsBox";
 
 function App() {
   useGSAP(() => {
@@ -44,6 +45,7 @@ function App() {
           rx="2"
         />
       </svg>
+      <ThreeJsBox />
     </div>
   );
 }
