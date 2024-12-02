@@ -1,6 +1,10 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import ThreeJsBox from "./components/ThreeJsBox";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// Register the ScrollTrigger plugin with GSAP
+gsap.registerPlugin(ScrollTrigger);
 
 function App() {
   useGSAP(() => {
@@ -25,9 +29,14 @@ function App() {
         fill: "#8d3dae",
         rx: 50,
       },
-      repeat: -1,
-      yoyo: true,
       ease: "back.out",
+      scrollTrigger: {
+        trigger: ".svgBox", // This is the element that triggers the animation
+        start: "top 80%", // When the element reaches 80% of the viewport height
+        end: "top 30%", // When the element reaches 30% of the viewport height
+        scrub: true, // Enable smooth scrubbing of the scroll
+        markers: true, // Optional: This will show markers for debugging
+      },
     });
   }, []);
 
